@@ -10,13 +10,16 @@ using namespace std;
 // 声明函数
 void TestVar();
 void TestType();
+void TestOperator();
 
 int main()
 {
     // 测试变量常量
     //TestVar();
     // 测试基本数据类型
-    TestType();
+    //TestType();
+    // 测试运算符
+    TestOperator();
 
     system("pause");// 单行注释 让命令提示框不至于闪现
     return 0;
@@ -102,5 +105,137 @@ void TestType()
     cout << "size of bool = " << sizeof(bool) << endl; //1
 }
 
+void TestOperator()
+{
+    // + - * / 运算
+    int a1 = 10;
+    int b1 = 3;
 
+    cout << a1 + b1 << endl;
+    cout << a1 - b1 << endl;
+    cout << a1 * b1 << endl;
+    cout << a1 / b1 << endl;  //两个整数相除结果依然是整数
 
+    int a2 = 10;
+    int b2 = 20;
+    cout << a2 / b2 << endl;
+
+    int a3 = 10;
+    int b3 = 0;
+    //cout << a3 / b3 << endl; //报错，除数不可以为0
+
+    //两个小数可以相除
+    double d1 = 0.5;
+    double d2 = 0.25;
+    cout << d1 / d2 << endl;
+
+    // 取模 % 运算
+    int a11 = 10;
+    int b11 = 3;
+
+    cout << 10 % 3 << endl;
+
+    int a22 = 10;
+    int b22 = 20;
+
+    cout << a22 % b22 << endl;
+
+    int a33 = 10;
+    int b33 = 0;
+
+    //cout << a3 % b3 << endl; //取模运算时，除数也不能为0
+
+    //两个小数不可以取模
+    double d11 = 3.14;
+    double d22 = 1.1;
+
+    //cout << d1 % d2 << endl;
+
+    //后置递增
+    int a = 10;
+    a++; //等价于a = a + 1
+    cout << a << endl; // 11
+
+    //前置递增
+    int b = 10;
+    ++b;
+    cout << b << endl; // 11
+
+    //区别
+    //前置递增先对变量进行++，再计算表达式
+    int a12 = 10;
+    int b12 = ++a12 * 10;
+    cout << b12 << endl;
+
+    //后置递增先计算表达式，后对变量进行++
+    int a13 = 10;
+    int b13 = a13++ * 10;
+    cout << b13 << endl;
+
+    // 赋值运算符
+    // =
+    a = 10;
+    a = 100;
+    cout << "a = " << a << endl;
+
+    // +=
+    a = 10;
+    a += 2; // a = a + 2;
+    cout << "a = " << a << endl;
+
+    // -=
+    a = 10;
+    a -= 2; // a = a - 2
+    cout << "a = " << a << endl;
+
+    // *=
+    a = 10;
+    a *= 2; // a = a * 2
+    cout << "a = " << a << endl;
+
+    // /=
+    a = 10;
+    a /= 2;  // a = a / 2;
+    cout << "a = " << a << endl;
+
+    // %=
+    a = 10;
+    a %= 2;  // a = a % 2;
+    cout << "a = " << a << endl;
+
+    //比较运算符
+    a = 10;
+    b = 20;
+
+    cout << (a == b) << endl; // 0 
+    cout << (a != b) << endl; // 1
+    cout << (a > b) << endl; // 0
+    cout << (a < b) << endl; // 1
+    cout << (a >= b) << endl; // 0
+    cout << (a <= b) << endl; // 1
+
+    // 逻辑运算符
+    a = 10;
+    cout << !a << endl; // 0
+    cout << !!a << endl; // 1
+
+    a = 10;
+    b = 10;
+    cout << (a && b) << endl;// 1
+    a = 10;
+    b = 0;
+    cout << (a && b) << endl;// 0 
+    a = 0;
+    b = 0;
+    cout << (a && b) << endl;// 0
+
+    a = 10;
+    b = 10;
+    cout << (a || b) << endl;// 1
+    a = 10;
+    b = 0;
+    cout << (a || b) << endl;// 1 
+    a = 0;
+    b = 0;
+    cout << (a || b) << endl;// 0
+}
