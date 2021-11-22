@@ -15,6 +15,9 @@ void TestArray();
 void TestFunc();
 int add(int num1, int num2);
 void Swap(int num1, int num2);
+void TestPointer();
+void swap1(int a, int b);
+void swap2(int* a, int* b);
 
 int main()
 {
@@ -30,7 +33,9 @@ int main()
     // 测试数组
     //TestArray();
     // 测试函数
-    TestFunc();
+    //TestFunc();
+    // 测试指针
+    TestPointer();
 
     system("pause");// 单行注释 让命令提示框不至于闪现
     return 0;
@@ -615,4 +620,94 @@ int test04(int a, int b)
     cout << "this is test04 " << endl;
     int sum = a + b;
     return sum;
+}
+
+
+void TestPointer()
+{
+    int a = 10;
+
+    //指针定义：数据类型 * 变量名
+    int* p;
+
+    //我们可以通过 & 符号 获取变量的地址
+    p = &a;// 指针指向变量 a 的地址
+    cout << &a << endl;
+    cout << p << endl;
+
+    // 通过*操作指针变量指向的内存（解引用）
+    cout << "*p= " << *p << endl;
+
+    // 4个字节
+    cout << sizeof(p) << endl;
+    cout << sizeof(char*) << endl;
+    cout << sizeof(float*) << endl;
+    cout << sizeof(double*) << endl;
+
+    //空指针和野指针都不是我们申请的空间，因此不要访问
+    int* p1 = NULL;//空指针
+    cout << *p << endl;
+
+    int* p2 = (int*)0x1100;//野指针
+    cout << *p << endl;
+
+    a = 10;
+    int b = 10;
+
+    //const修饰的是指针，指针指向可以改，指针指向的值不可以更改
+    const int* p11 = &a;
+    p11 = &b; //正确
+    //*p1 = 100;  //报错
+
+
+    //const修饰的是常量，指针指向不可以改，指针指向的值可以更改
+    int* const p12 = &a;
+    //p12 = &b; //错误
+    *p12 = 100; //正确
+
+    //const既修饰指针又修饰常量
+    const int* const p13 = &a;
+    //p13 = &b; //错误
+    //*p13 = 100; //错误
+
+
+    int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+
+    p = arr;  //指向数组的指针
+
+    cout << "第一个元素： " << arr[0] << endl;
+    cout << "指针访问第一个元素： " << *p << endl;
+
+    for (int i = 0; i < 10; i++)
+    {
+        //利用指针遍历数组
+        cout << *p << endl;
+        p++;
+    }
+
+    // 指针与函数
+    a = 10;
+    b = 20;
+    swap1(a, b);//值传递不会改变实参
+    swap2(&a, &b);// 地址传递会改变实参
+    cout << "a=" << a << endl;
+    cout << "b=" << b << endl;
+
+}
+
+
+// 值传递
+void swap1(int a, int b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+// 地址传递
+void swap2(int* a, int* b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
