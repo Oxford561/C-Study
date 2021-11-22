@@ -111,6 +111,43 @@ void ShowPerson(Addressbooks* abs)
 	system("cls");
 }
 
+//判断是否存在查询的人员，存在返回在数组中索引位置，不存在返回-1
+int IsExist(Addressbooks* abs, string name)
+{
+	for (int i = 0; i < abs->m_Size; i++)
+	{
+		if (abs->personArray[i].m_Name == name)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+void DeletePerson(Addressbooks* abs)
+{
+	cout << "请输入您要删除的联系人" << endl;
+	string name;
+	cin >> name;
+
+	int ret = IsExist(abs, name);
+	if (ret != -1)
+	{
+		for (int i = ret; i < abs->m_Size; i++)
+		{
+			abs->personArray[i] = abs->personArray[i + 1];
+		}
+		abs->m_Size--;
+		cout << "删除成功" << endl;
+	}
+	else
+	{
+		cout << "查无此人" << endl;
+	}
+
+	system("pause");
+	system("cls");
+}
 
 int main()
 {
@@ -133,6 +170,7 @@ int main()
 			ShowPerson(&abs);
 			break;
 		case 3:// 删除联系人
+			DeletePerson(&abs);
 			break;
 		case 4:// 查找联系人
 			break;
