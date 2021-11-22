@@ -11,15 +11,19 @@ using namespace std;
 void TestVar();
 void TestType();
 void TestOperator();
+void TestProcedure();
 
 int main()
 {
+    cout << "Hello World!\n";
     // 测试变量常量
     //TestVar();
     // 测试基本数据类型
     //TestType();
     // 测试运算符
-    TestOperator();
+    //TestOperator();
+    // 测试程序流程
+    //TestProcedure();
 
     system("pause");// 单行注释 让命令提示框不至于闪现
     return 0;
@@ -239,3 +243,219 @@ void TestOperator()
     b = 0;
     cout << (a || b) << endl;// 0
 }
+
+void TestProcedure()
+{
+    //选择结构-单行if语句
+    //输入一个分数，如果分数大于600分，视为考上一本大学，并在屏幕上打印
+
+    int score = 0;
+    cout << "请输入一个分数：" << endl;
+    cin >> score;
+
+    cout << "您输入的分数为： " << score << endl;
+
+    //if语句
+    //注意事项，在if判断语句后面，不要加分号
+    if (score > 600)
+    {
+        cout << "我考上了一本大学！！！" << endl;
+    }
+
+    score = 0;
+
+    cout << "请输入考试分数：" << endl;
+
+    cin >> score;
+
+    if (score > 600)
+    {
+        cout << "我考上了一本大学" << endl;
+    }
+    else if (score > 500)
+    {
+        cout << "我考上了二本大学" << endl;
+    }
+    else if (score > 400)
+    {
+        cout << "我考上了三本大学" << endl;
+    }
+    else
+    {
+        cout << "我未考上本科" << endl;
+    }
+
+    score = 0;
+
+    cout << "请输入考试分数：" << endl;
+
+    cin >> score;
+
+    if (score > 600)
+    {
+        cout << "我考上了一本大学" << endl;
+        if (score > 700)
+        {
+            cout << "我考上了北大" << endl;
+        }
+        else if (score > 650)
+        {
+            cout << "我考上了清华" << endl;
+        }
+        else
+        {
+            cout << "我考上了人大" << endl;
+        }
+
+    }
+    else if (score > 500)
+    {
+        cout << "我考上了二本大学" << endl;
+    }
+    else if (score > 400)
+    {
+        cout << "我考上了三本大学" << endl;
+    }
+    else
+    {
+        cout << "我未考上本科" << endl;
+    }
+
+    // 三目运算符
+    int a = 10;
+    int b = 20;
+    int c = 0;
+
+    c = a > b ? a : b;
+    cout << "c = " << c << endl;
+
+    //C++中三目运算符返回的是变量,可以继续赋值
+
+    (a > b ? a : b) = 100;
+
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+    cout << "c = " << c << endl;
+
+    // switch 语句
+    //请给电影评分 
+    //10 ~ 9   经典   
+    // 8 ~ 7   非常好
+    // 6 ~ 5   一般
+    // 5分以下 烂片
+
+    score = 0;
+    cout << "请给电影打分" << endl;
+    cin >> score;
+
+    switch (score)
+    {
+        case 10:
+        case 9:
+            cout << "经典" << endl;
+            break;
+        case 8:
+            cout << "非常好" << endl;
+            break;
+        case 7:
+        case 6:
+            cout << "一般" << endl;
+            break;
+        default:
+            cout << "烂片" << endl;
+            break;
+    }
+
+    // 循环结构
+    int num = 0;
+    while (num < 10) {
+        cout << "num = " << num << endl;
+        num++;
+    }
+
+    // 至少执行一次循环代码
+    do
+    {
+        cout << num << endl;
+        num++;
+
+    } while (num < 10);
+
+
+    for (int i = 0; i < 10; i++)
+    {
+        cout << i << endl;
+    }
+
+    // 跳转语句
+    //1、在switch 语句中使用break
+    cout << "请选择您挑战副本的难度：" << endl;
+    cout << "1、普通" << endl;
+    cout << "2、中等" << endl;
+    cout << "3、困难" << endl;
+
+    num = 0;
+
+    cin >> num;
+
+    switch (num)
+    {
+        case 1:
+            cout << "您选择的是普通难度" << endl;
+            break;
+        case 2:
+            cout << "您选择的是中等难度" << endl;
+            break;
+        case 3:
+            cout << "您选择的是困难难度" << endl;
+            break;
+    }
+
+    //2、在循环语句中用break
+    for (int i = 0; i < 10; i++)
+    {
+        if (i == 5)
+        {
+            break; //跳出循环语句
+        }
+        cout << i << endl;
+    }
+
+    //在嵌套循环语句中使用break，退出内层循环
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            if (j == 5)
+            {
+                break;
+            }
+            cout << "*" << " ";
+        }
+        cout << endl;
+    }
+
+
+    for (int i = 0; i < 100; i++)
+    {
+        if (i % 2 == 0)
+        {
+            continue;
+        }
+        cout << i << endl;
+    }
+
+    // goto 语句
+    cout << "1" << endl;
+
+    goto FLAG;
+
+    cout << "2" << endl;
+    cout << "3" << endl;
+    cout << "4" << endl;
+
+    FLAG:
+
+    cout << "5" << endl;
+}
+

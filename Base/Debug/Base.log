@@ -1,3 +1,2 @@
-﻿  Base.cpp
-E:\GitProjects\CPlusPlusStudy\Base\Base.cpp(81,20): warning C4305: “初始化”: 从“double”到“float”截断
+﻿  LINK : 没有找到 E:\GitProjects\CPlusPlusStudy\Base\Debug\Base.exe 或上一个增量链接没有生成它；正在执行完全链接
   Base.vcxproj -> E:\GitProjects\CPlusPlusStudy\Base\Debug\Base.exe
