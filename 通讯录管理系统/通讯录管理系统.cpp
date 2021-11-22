@@ -88,6 +88,28 @@ void AddPerson(Addressbooks* abs)
 		system("cls");
 	}
 }
+// 显示联系人
+void ShowPerson(Addressbooks* abs)
+{
+	if (abs->m_Size == 0)
+	{
+		cout << "当前记录为空" << endl;
+	}
+	else
+	{
+		for (int i = 0; i < abs->m_Size; i++)
+		{
+			cout << "姓名：" << abs->personArray[i].m_Name << "\t";
+			cout << "性别：" << (abs->personArray[i].m_Sex == 1 ? "男" : "女") << "\t";
+			cout << "年龄：" << abs->personArray[i].m_Age << "\t";
+			cout << "电话：" << abs->personArray[i].m_Phone << "\t";
+			cout << "住址：" << abs->personArray[i].m_Addr << endl;
+		}
+	}
+
+	system("pause");
+	system("cls");
+}
 
 
 int main()
@@ -96,7 +118,6 @@ int main()
 	Addressbooks abs;
 	// 初始化通讯录中人数
 	abs.m_Size = 0;
-
 
 	int select = 0;
 	while (true)
@@ -109,6 +130,7 @@ int main()
 			AddPerson(&abs);
 			break;
 		case 2:// 显示联系人
+			ShowPerson(&abs);
 			break;
 		case 3:// 删除联系人
 			break;
