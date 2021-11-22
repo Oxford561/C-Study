@@ -172,7 +172,7 @@ void FindPerson(Addressbooks* abs)
 	system("pause");
 	system("cls");
 }
-
+// 修改联系人
 void ModifyPerson(Addressbooks* abs)
 {
 	cout << "请输入您要修改的联系人" << endl;
@@ -234,6 +234,14 @@ void ModifyPerson(Addressbooks* abs)
 	system("cls");
 }
 
+void CleanPerson(Addressbooks* abs)
+{
+	abs->m_Size = 0;
+	cout << "通讯录已清空" << endl;
+	system("pause");
+	system("cls");
+}
+
 int main()
 {
 	// 创建通讯录
@@ -264,6 +272,7 @@ int main()
 			ModifyPerson(&abs);
 			break;
 		case 6:// 清空联系人
+			CleanPerson(&abs);
 			break;
 		case 0: // 退出通讯录
 			cout << "欢迎下次使用" << endl;
