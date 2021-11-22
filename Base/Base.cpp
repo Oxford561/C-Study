@@ -1,18 +1,20 @@
 ﻿// Base.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
-
-#include <iostream>
+#include "swap.h"
 #include <string>
 using namespace std;
 
 // 定义常量：宏常量
 #define day 7
-// 声明函数
+// 声明函数,声明可以很多次，但是定义只能是一次
 void TestVar();
 void TestType();
 void TestOperator();
 void TestProcedure();
 void TestArray();
+void TestFunc();
+int add(int num1, int num2);
+void Swap(int num1, int num2);
 
 int main()
 {
@@ -26,7 +28,9 @@ int main()
     // 测试程序流程
     //TestProcedure();
     // 测试数组
-    TestArray();
+    //TestArray();
+    // 测试函数
+    TestFunc();
 
     system("pause");// 单行注释 让命令提示框不至于闪现
     return 0;
@@ -544,4 +548,71 @@ void TestArray()
     cout << "二维数组第二个元素地址：" << &arr2[0][1] << endl;
 
 
+}
+
+void TestFunc()
+{
+    int sum = add(1, 1);
+    cout << sum << endl;
+    int a = 10;
+    int b = 20;
+    Swap(a, b);
+    cout << "mian中的 a = " << a << endl;
+    cout << "mian中的 b = " << b << endl;
+}
+
+// 函数定义
+int add(int num1, int num2) 
+{
+    int sum = num1 + num2;
+    return sum;
+}
+
+// 交换数值，形参修改不了实参
+void Swap(int num1, int num2)
+{
+    cout << "交换前：" << endl;
+    cout << "num1 = " << num1 << endl;
+    cout << "num2 = " << num2 << endl;
+
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+
+    cout << "交换后：" << endl;
+    cout << "num1 = " << num1 << endl;
+    cout << "num2 = " << num2 << endl;
+
+    //return ; 当函数声明时候，不需要返回值，可以不写return
+}
+
+//函数常见样式
+//1、 无参无返
+void test01()
+{
+    //void a = 10; //无类型不可以创建变量,原因无法分配内存
+    cout << "this is test01" << endl;
+    //test01(); 函数调用
+}
+
+//2、 有参无返
+void test02(int a)
+{
+    cout << "this is test02" << endl;
+    cout << "a = " << a << endl;
+}
+
+//3、无参有返
+int test03()
+{
+    cout << "this is test03 " << endl;
+    return 10;
+}
+
+//4、有参有返
+int test04(int a, int b)
+{
+    cout << "this is test04 " << endl;
+    int sum = a + b;
+    return sum;
 }

@@ -1,3 +1,9 @@
 ﻿  Base.cpp
-E:\GitProjects\CPlusPlusStudy\Base\Base.cpp(85,20): warning C4305: “初始化”: 从“double”到“float”截断
+E:\GitProjects\CPlusPlusStudy\Base\Base.cpp(92,20): warning C4305: “初始化”: 从“double”到“float”截断
+E:\GitProjects\CPlusPlusStudy\Base\Base.cpp(502,50): warning C4311: “类型强制转换”: 从“int *”到“int”的指针截断
+E:\GitProjects\CPlusPlusStudy\Base\Base.cpp(502,50): warning C4302: “类型强制转换”: 从“int *”到“int”截断
+E:\GitProjects\CPlusPlusStudy\Base\Base.cpp(503,69): warning C4311: “类型强制转换”: 从“int *”到“int”的指针截断
+E:\GitProjects\CPlusPlusStudy\Base\Base.cpp(503,69): warning C4302: “类型强制转换”: 从“int *”到“int”截断
+E:\GitProjects\CPlusPlusStudy\Base\Base.cpp(504,69): warning C4311: “类型强制转换”: 从“int *”到“int”的指针截断
+E:\GitProjects\CPlusPlusStudy\Base\Base.cpp(504,69): warning C4302: “类型强制转换”: 从“int *”到“int”截断
   Base.vcxproj -> E:\GitProjects\CPlusPlusStudy\Base\x64\Debug\Base.exe
