@@ -123,7 +123,7 @@ int IsExist(Addressbooks* abs, string name)
 	}
 	return -1;
 }
-
+// 删除联系人
 void DeletePerson(Addressbooks* abs)
 {
 	cout << "请输入您要删除的联系人" << endl;
@@ -139,6 +139,30 @@ void DeletePerson(Addressbooks* abs)
 		}
 		abs->m_Size--;
 		cout << "删除成功" << endl;
+	}
+	else
+	{
+		cout << "查无此人" << endl;
+	}
+
+	system("pause");
+	system("cls");
+}
+// 查找指定联系人信息
+void FindPerson(Addressbooks* abs)
+{
+	cout << "请输入您要查找的联系人" << endl;
+	string name;
+	cin >> name;
+
+	int ret = IsExist(abs, name);
+	if (ret != -1)
+	{
+		cout << "姓名：" << abs->personArray[ret].m_Name << "\t";
+		cout << "性别：" << abs->personArray[ret].m_Sex << "\t";
+		cout << "年龄：" << abs->personArray[ret].m_Age << "\t";
+		cout << "电话：" << abs->personArray[ret].m_Phone << "\t";
+		cout << "住址：" << abs->personArray[ret].m_Addr << endl;
 	}
 	else
 	{
@@ -173,6 +197,7 @@ int main()
 			DeletePerson(&abs);
 			break;
 		case 4:// 查找联系人
+			FindPerson(&abs);
 			break;
 		case 5:// 修改联系人
 			break;
