@@ -2,11 +2,15 @@
 using namespace std;
 
 void TestVar();
+void TestNew();
+int* NewFunc();
 
 int main()
 {
 	//测试全局变量，局部变量
-	TestVar();
+	//TestVar();
+	// 测试 New 操作符
+	TestNew();
 
 	system("pause");
 	return 0;
@@ -62,3 +66,37 @@ void TestVar()
 	cout << "局部常量c_l_b地址为： " << (int)&c_l_b << endl;
 }
 
+void TestNew()
+{
+	int* p = NewFunc();
+	
+	cout << *p << endl;
+	cout << *p << endl;
+
+	// 利用 delete 释放堆区数据
+	delete p;
+
+	//cout << *p << endl; // 报错，释放的空间不可访问
+
+	int* arr = new int[10];
+	for (int i = 0; i < 10; i++)
+	{
+		arr[i] = i + 100;
+	}
+
+	for (int i = 0; i < 10; i++)
+	{
+		cout << arr[i] << endl;
+	}
+
+	// 释放数组 delete []
+	delete[] arr;
+
+		
+}
+
+int* NewFunc()
+{
+	int* a = new int(10);
+	return a;
+}
