@@ -18,6 +18,30 @@ void Swap(int num1, int num2);
 void TestPointer();
 void swap1(int a, int b);
 void swap2(int* a, int* b);
+void TestStruct();
+
+// 结构体定义
+struct student
+{
+    //成员列表
+    string name;//姓名
+    int age;//年龄
+    int score;//分数
+}stu3;//创建结构体变量
+
+void printStudent(student stu);
+void printStudent2(student* stu);
+void printConstStudent(const student* stu);
+
+//教师结构体定义
+struct teacher
+{
+    //成员列表
+    int id; //职工编号
+    string name;  //教师姓名
+    int age;   //教师年龄
+    struct student stu; //子结构体 学生
+};
 
 int main()
 {
@@ -35,7 +59,9 @@ int main()
     // 测试函数
     //TestFunc();
     // 测试指针
-    TestPointer();
+    //TestPointer();
+    // 测试结构体
+    TestStruct();
 
     system("pause");// 单行注释 让命令提示框不至于闪现
     return 0;
@@ -710,4 +736,86 @@ void swap2(int* a, int* b)
     int temp = *a;
     *a = *b;
     *b = temp;
+}
+
+void TestStruct()
+{
+    cout << "TestStruct" << endl;
+    // 结构体创建方式1
+    struct student stu1;
+    stu1.name = "张三";
+    stu1.age = 18;
+    stu1.score = 100;
+
+    cout << stu1.name << endl;
+
+    // 结构体创建方式2
+    struct student stu2 = {"李四",19,60};
+    cout << stu2.name <<endl;
+
+    // 结构体创建方式3
+    stu3.name = "王五";
+    stu3.age = 18;
+    stu3.score = 90;
+
+    cout << stu3.name << endl;
+
+    // 结构体数组
+    struct student arr[3] =
+    {
+        {"张三",18,80 },
+        {"李四",19,60 },
+        {"王五",20,70 }
+    };
+
+    for (int i = 0; i < 3; i++)
+    {
+        cout << "姓名：" << arr[i].name << " 年龄：" << arr[i].age << " 分数：" << arr[i].score << endl;
+    }
+
+    // 结构体指针
+    struct student stu = { "张三",18,100, };
+    struct student* p = &stu;
+    p->score = 80; //指针通过 -> 操作符可以访问成员
+    cout << "姓名：" << p->name << " 年龄：" << p->age << " 分数：" << p->score << endl;
+
+    // 结构体嵌套
+    struct teacher t1;
+    t1.id = 10000;
+    t1.name = "老王";
+    t1.age = 40;
+
+    t1.stu.name = "张三";
+    t1.stu.age = 18;
+    t1.stu.score = 100;
+    cout << "教师 职工编号： " << t1.id << " 姓名： " << t1.name << " 年龄： " << t1.age << endl;
+    cout << "辅导学员 姓名： " << t1.stu.name << " 年龄：" << t1.stu.age << " 考试分数： " << t1.stu.score << endl;
+
+    // 结构体传参
+    printStudent(stu);
+    cout << "主函数中 姓名：" << stu.name << " 年龄： " << stu.age << " 分数：" << stu.score << endl;
+    cout << endl;
+    //地址传递
+    printStudent2(&stu);
+    cout << "主函数中 姓名：" << stu.name << " 年龄： " << stu.age << " 分数：" << stu.score << endl;
+}
+
+//值传递
+void printStudent(student stu)
+{
+    stu.age = 28;
+    cout << "子函数中 姓名：" << stu.name << " 年龄： " << stu.age << " 分数：" << stu.score << endl;
+}
+
+//地址传递
+void printStudent2(student* stu)
+{
+    stu->age = 28;
+    cout << "子函数中 姓名：" << stu->name << " 年龄： " << stu->age << " 分数：" << stu->score << endl;
+}
+
+void printConstStudent(const student* stu)//加const防止函数体中的误操作
+{
+    //stu->age = 100; //操作失败，因为加了const修饰
+    cout << "姓名：" << stu->name << " 年龄：" << stu->age << " 分数：" << stu->score << endl;
 }
