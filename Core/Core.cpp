@@ -4,13 +4,21 @@ using namespace std;
 void TestVar();
 void TestNew();
 int* NewFunc();
+void TestReference();
+void MySwap01(int a, int b);
+void MySwap02(int* a, int* b);
+void MySwap03(int& a, int& b);
+int& Test01();
+int& Test02();
 
 int main()
 {
 	//测试全局变量，局部变量
 	//TestVar();
 	// 测试 New 操作符
-	TestNew();
+	//TestNew();
+	// 测试引用
+	TestReference();
 
 	system("pause");
 	return 0;
@@ -98,5 +106,78 @@ void TestNew()
 int* NewFunc()
 {
 	int* a = new int(10);
+	return a;
+}
+
+void TestReference()
+{
+	int a = 10;
+	int& b = a; // 引用必须初始化,一旦初始化就不能修改
+
+	cout << "a= " << a << endl;
+	cout << "b= " << b << endl;
+
+	b = 100;
+	cout << "a= " << a << endl;
+	cout << "b= " << b << endl;
+
+	a = 10;
+	int c = 20;
+	MySwap01(a, c);
+	cout << "a:" << a << "c:" << c << endl;
+
+	MySwap02(&a, &c);
+	cout << "a:" << a << "c:" << c << endl;
+
+	MySwap03(a, c);
+	cout << "a:" << a << "c:" << c << endl;
+
+	//不能返回局部变量的引用
+	int& ref = Test01();
+	cout << "ref = " << ref << endl;
+	cout << "ref = " << ref << endl;//乱码,释放
+
+	//如果函数做左值，那么必须返回引用
+	int& ref2 = Test02();
+	cout << "ref2 = " << ref2 << endl;
+	cout << "ref2 = " << ref2 << endl;
+
+	Test02() = 1000;
+
+	cout << "ref2 = " << ref2 << endl;
+	cout << "ref2 = " << ref2 << endl;
+
+}
+
+//1. 值传递
+void MySwap01(int a, int b) {
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+//2. 地址传递
+void MySwap02(int* a, int* b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+//3. 引用传递
+void MySwap03(int& a, int& b) {
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+//返回局部变量引用
+int& Test01() {
+	int a = 10; //局部变量
+	return a;
+}
+
+//返回静态变量引用
+int& Test02() {
+	static int a = 20;
 	return a;
 }

@@ -43,29 +43,29 @@ struct teacher
     struct student stu; //子结构体 学生
 };
 
-int main()
-{
-    cout << "Hello World!\n";
-    // 测试变量常量
-    //TestVar();
-    // 测试基本数据类型
-    //TestType();
-    // 测试运算符
-    //TestOperator();
-    // 测试程序流程
-    //TestProcedure();
-    // 测试数组
-    //TestArray();
-    // 测试函数
-    //TestFunc();
-    // 测试指针
-    //TestPointer();
-    // 测试结构体
-    TestStruct();
-
-    system("pause");// 单行注释 让命令提示框不至于闪现
-    return 0;
-}
+//int main()
+//{
+//    cout << "Hello World!\n";
+//    // 测试变量常量
+//    //TestVar();
+//    // 测试基本数据类型
+//    //TestType();
+//    // 测试运算符
+//    //TestOperator();
+//    // 测试程序流程
+//    //TestProcedure();
+//    // 测试数组
+//    //TestArray();
+//    // 测试函数
+//    //TestFunc();
+//    // 测试指针
+//    //TestPointer();
+//    // 测试结构体
+//    TestStruct();
+//
+//    system("pause");// 单行注释 让命令提示框不至于闪现
+//    return 0;
+//}
 
 void TestVar()
 {
