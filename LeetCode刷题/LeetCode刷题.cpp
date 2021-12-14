@@ -8,6 +8,10 @@ int main()
 {
     LeetCode1 lc1;
     lc1.Test();
+    
+    
+    
+    
     system("pause");
     return 0;
 }

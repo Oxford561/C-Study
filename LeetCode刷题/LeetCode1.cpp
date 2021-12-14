@@ -4,10 +4,10 @@
 using namespace std;
 
 /*
-¸ø¶¨ nums = [2, 7, 11, 15], target = 9
+ç»™å®š nums = [2, 7, 11, 15], target = 9
 
-ÒòÎª nums[0] + nums[1] = 2 + 7 = 9
-ËùÒÔ·µ»Ø [0, 1]
+å› ä¸º nums[0] + nums[1] = 2 + 7 = 9
+æ‰€ä»¥è¿”å›ž [0, 1]
 */
 
 class LeetCode1
@@ -22,13 +22,34 @@ public:
 		nums.push_back(3);
 		nums.push_back(0);
 
-		vector<int> array = TwoSum(nums,0);
+		vector<int> array = TwoSum1(nums,0);
 		for (vector<int>::iterator it = array.begin(); it != array.end(); it++) {
 			cout << *it << endl;
 		}
 	}
 
-	vector<int> TwoSum(vector<int> nums, int target)
+	//æš´åŠ›è§£æ³•
+	vector<int> TwoSum1(vector<int>& nums, int target)
+	{
+		int i, j;
+		vector<int> ans;
+		for (i = 0; i < nums.size() - 1; ++i)
+		{
+			for (j = i + 1; j < nums.size(); ++j)
+			{
+				if (nums[i] + nums[j] == target)
+				{
+					ans.push_back(i);
+					ans.push_back(j);
+					return ans;
+				}
+			}
+		}
+		return ans;
+	}
+
+	// ä¼˜åŒ–ç‰ˆæœ¬è§£æ³•
+	vector<int> TwoSum2(vector<int> nums, int target)
 	{
 		map<int, int> cache;
 		vector<int> res;
