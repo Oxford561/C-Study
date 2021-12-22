@@ -3,13 +3,15 @@
 
 #include <iostream>
 #include "LeetCode1.cpp"
+#include "LeetCode2.cpp"
 
 int main()
 {
-    LeetCode1 lc1;
-    lc1.Test();
+   /* LeetCode1 lc1;
+    lc1.Test();*/
     
-    
+    LeetCode2 lc2;
+    lc2.Test();
     
     
     system("pause");

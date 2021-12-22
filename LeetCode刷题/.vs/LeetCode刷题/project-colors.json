@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1c22afcc-9a87-4e8f-b0bc-e269814677c3": {
+      "ProjectGuid": "1c22afcc-9a87-4e8f-b0bc-e269814677c3",
+      "DisplayName": "LeetCode刷题",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
